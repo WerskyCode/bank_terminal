@@ -3,14 +3,22 @@ package bank_terminal;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
-/*
- * 04.09.2026
- * 1. Для реализации логирования создан класс BankLogger.
- */
-
 public class BankLogger {
-    LocalDateTime now = LocalDateTime.now();
-    DateTimeFormatter formattedPattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private static final DateTimeFormatter formattedPattern = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
+    public static void logTransferError(Exception e) {
+        LocalDateTime now = (LocalDateTime.now());
+        String formattedDate = now.format(formattedPattern);
+        System.out.println("ОШИБКА ПЕРЕВОДА!");
+        System.out.println("Время " + formattedDate);
+        System.out.println("Причина " + e.getMessage());
+        System.out.println();
+    }
+
+    public static void logTransferAccess(Account account) {
+        System.out.println("Перевод выполнен успешно");
+        System.out.println("Ваш баланс "  + account.getBalance());
+        System.out.println();
+    }
 
 }

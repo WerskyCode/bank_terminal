@@ -6,45 +6,43 @@ public class Main {
         CreditAccount creditAccount = new CreditAccount("123", 10000, 20000);
         Bank bank = new Bank();
 
-        bank.transfer(savingsAccount, creditAccount, 5000);
-        System.out.println(savingsAccount.getBalance());
-        System.out.println(creditAccount.getBalance());
-        System.out.println();
+        try {
+            bank.transfer(savingsAccount, creditAccount, 5000);
+            BankLogger.logTransferAccess(savingsAccount);
+        } catch (Exception e) {
+            BankLogger.logTransferError(e);
+        }
 
         try {
             bank.transfer(savingsAccount, creditAccount, 500000);
             System.out.println(savingsAccount.getBalance());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            BankLogger.logTransferError(e);
         }
-        System.out.println();
 
         try {
             bank.transfer(creditAccount, savingsAccount, 500000);
             System.out.println(creditAccount.getBalance());
         } catch (Exception e) {
-            System.out.println(e.getMessage());
+            BankLogger.logTransferError(e);
         }
-        System.out.println();
 
         try {
             bank.transfer(savingsAccount, creditAccount, -5000);
             System.out.println(savingsAccount.getBalance());
             System.out.println(creditAccount.getBalance());
-        } catch (InvalidAmountException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            BankLogger.logTransferError(e);
         }
         System.out.println(savingsAccount.getBalance());
         System.out.println(creditAccount.getBalance());
-
-        System.out.println();
 
         try {
             bank.transfer(creditAccount, savingsAccount, -5000);
             System.out.println(savingsAccount.getBalance());
             System.out.println(creditAccount.getBalance());
-        } catch (InvalidAmountException e) {
-            System.out.println(e.getMessage());
+        } catch (Exception e) {
+            BankLogger.logTransferError(e);
         }
         System.out.println(savingsAccount.getBalance());
         System.out.println(creditAccount.getBalance());
