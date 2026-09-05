@@ -14,57 +14,28 @@ public class Main {
 
         // 1. Перевод 5000 со сберегательного счета на кредитный.
         // Успешный перевод
-        try {
-            bank.transfer(savingsAccount, creditAccount, _5K);
-            BankLogger.logTransferSuccess(_5K);
-        } catch (Exception e) {
-            BankLogger.logTransferError(e);
-        }
+        bank.transfer(savingsAccount, creditAccount, _5K);
 
         // 2. Перевод 500000 со сберегательного счета на кредитный.
         // Ошибка количества средств
-        try {
-            bank.transfer(savingsAccount, creditAccount, _500K);
-            BankLogger.logTransferSuccess(_500K);
-        } catch (Exception e) {
-            BankLogger.logTransferError(e);
-        }
+        bank.transfer(savingsAccount, creditAccount, _500K);
+
 
         // 3. Перевод 500000 с кредитного счета на сберегательный.
         // Ошибка количества средств
-        try {
-            bank.transfer(creditAccount, savingsAccount, _500K);
-            BankLogger.logTransferSuccess(_500K);
-        } catch (Exception e) {
-            BankLogger.logTransferError(e);
-        }
+        bank.transfer(creditAccount, savingsAccount, _500K);
 
         // 4. Перевод -5000 со сберегательного счета на кредитный.
         // Ошибка неправильного ввода данных
-        try {
-            bank.transfer(savingsAccount, creditAccount, N5K);
-            BankLogger.logTransferSuccess(N5K);
-        } catch (Exception e) {
-            BankLogger.logTransferError(e);
-        }
+        bank.transfer(savingsAccount, creditAccount, N5K);
 
-        // 4. Перевод -5000 с кредитного счета на сберегательный.
+        // 5. Перевод -5000 с кредитного счета на сберегательный.
         // Ошибка неправильного ввода данных
-        try {
-            bank.transfer(creditAccount, savingsAccount, N5K);
-            BankLogger.logTransferSuccess(N5K);
-        } catch (Exception e) {
-            BankLogger.logTransferError(e);
-        }
+        bank.transfer(creditAccount, savingsAccount, N5K);
 
-        // 5. Перевод 0 со сберегательного счета на кредитный.
+        // 6. Перевод 0 со сберегательного счета на кредитный.
         // Ошибка неправильного ввода данных
-        try {
-            bank.transfer(savingsAccount, creditAccount, ZERO);
-            BankLogger.logTransferSuccess(ZERO);
-        } catch (Exception e) {
-            BankLogger.logTransferError(e);
-        }
+        bank.transfer(savingsAccount, creditAccount, ZERO);
 
         // Вывод балансов всех аккаунтов
         BankLogger.printBalanceReport(savingsAccount, creditAccount);
