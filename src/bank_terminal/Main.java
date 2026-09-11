@@ -3,9 +3,9 @@ package bank_terminal;
 public class Main {
     public static void main(String[] args) {
         // Создаем аккаунты 2-х видов
-        SavingsAccount savingsAccount = new SavingsAccount("123456", 20000);
-        CreditAccount creditAccount = new CreditAccount("123", 10000, 20000);
-        Bank bank = new Bank();
+        var savingsAccount = new SavingsAccount("123456", 20000);
+        var creditAccount = new CreditAccount("123", 10000, 20000);
+        var bank = new Bank();
 
         final double ZERO = 0;
         final double _5K = 5000;

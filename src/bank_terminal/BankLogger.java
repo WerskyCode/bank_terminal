@@ -1,5 +1,6 @@
 package bank_terminal;
 
+import java.util.List;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
@@ -24,11 +25,12 @@ public class BankLogger {
         System.out.println();
     }
 
-    public static void printBalanceReport(Account ... accounts) {
+    public static void printBalanceReport(Account... accounts) {
         System.out.println("         ---Балансы---");
-        for (Account account : accounts) {
-            System.out.printf("ID: %10s | Balance: %10.2f\n",account.getAccountNumber(), account.getBalance());
-        }
+        List.of(accounts)
+                .forEach(account -> System.out.printf("ID: %10s | Balance: %10.2f\n",
+                        account.getAccountNumber(),
+                        account.getBalance()));
         System.out.println();
     }
 
